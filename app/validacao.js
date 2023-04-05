@@ -33,7 +33,7 @@ function verificaChutePossuiValorValido(chute) {
         tentativasRestantes--;
         document.body.innerHTML = `
         <h2>Você acertou!</h2>
-        <h3>O número secreto era ${numeroSecreto}</h3>
+        <h3>O número secreto é ${numeroSecreto}</h3>
         <h4 id="tentativas" class="tentativas">Você acertou em ${tentativas} tentativas</h4>
         <button id="jogar-novamente" class="btn-jogar">Jogar Novamente</button>
          `
@@ -55,16 +55,16 @@ function verificaChutePossuiValorValido(chute) {
         <h4 id="tentativas" class="tentativas">Você tem ${tentativasRestantes} tentativas</h4>
         `
     }
-
-    if(tentativas > 5) {
+     
+    if(tentativas >= 5 && numero !== numeroSecreto) {
         document.body.innerHTML = `
-            <h2>GAME OVER!!</h2>
-            <h3>Pressione o botão para jogar novamente</h3>
-            <button id="jogar-novamente" class="btn-jogar">Jogar Novamente</button>
-            `
-            document.body.style.background = "black";
+        <h2>GAME OVER!!!</h2>
+        <h3>O número secreto é: ${numeroSecreto}</h3>
+        <h4>Você perdeu o jogo :(</h4>
+        <button id="jogar-novamente" class="btn-jogar">Jogar Novamente</button>
+        `
+        document.body.style.background = "black";
     }
-
 }
 
 function chuteInvalido(numero) {
